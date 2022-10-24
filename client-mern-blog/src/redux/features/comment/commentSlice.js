@@ -8,11 +8,12 @@ const initialState = {
 
 export const createComment = createAsyncThunk(
     'comment/createComment',
-    async ({ postId, comment }) => {
+    async ({ postId, comment, user }) => {
         try {
             const { data } = await axios.post(`/comments/${postId}`, {
                 postId,
                 comment,
+                user
             })
             return data
         } catch (error) {

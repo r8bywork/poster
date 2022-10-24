@@ -7,6 +7,7 @@ export const CommentItem = ({ cmt }) => {
             <div className='flex items-center justify-center shrink-0 rounded-full w-10 h-10 bg-blue-300 text-sm'>
                 {avatar}
             </div>
+            <div className='flex text-gray-300 text-[10px]'>{cmt.user}</div>
             <div className='flex text-gray-300 text-[10px]'>{cmt.comment}</div>
         </div>
     )

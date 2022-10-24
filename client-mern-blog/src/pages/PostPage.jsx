@@ -44,7 +44,7 @@ export const PostPage = () => {
     const handleSubmit = () => {
         try {
             const postId = params.id
-            dispatch(createComment({ postId, comment }))
+            dispatch(createComment({ postId, comment, user:user?.username }))
             setComment('')
         } catch (error) {
             console.log(error)

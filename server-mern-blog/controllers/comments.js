@@ -4,11 +4,11 @@ import Post from '../models/Post.js'
 export const createComment = async (req, res) => {
     try {
         const { postId, comment } = req.body
-
+        console.log(req.body)
         if (!comment)
             return res.json({ message: 'Комментарий не может быть пустым' })
 
-        const newComment = new Comment({ comment })
+        const newComment = new Comment({ comment, user: req.body.user })
         await newComment.save()
 
         try {
