@@ -19,7 +19,7 @@ import {
     createComment,
     getPostComments,
 } from '../redux/features/comment/commentSlice'
-import { CommentItem } from '../components/CommentItem'
+import CommentItem from '../components/CommentItem/CommentItem'
 
 export const PostPage = () => {
     const [post, setPost] = useState(null)
@@ -34,7 +34,7 @@ export const PostPage = () => {
     const removePostHandler = () => {
         try {
             dispatch(removePost(params.id))
-            toast('Пост был удален')
+            toast('Post was deleted')
             navigate('/posts')
         } catch (error) {
             console.log(error)
@@ -81,51 +81,49 @@ export const PostPage = () => {
     }
     return (
         <div>
-            <button className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'>
-                <Link className='flex' to={'/'}>
-                    Назад
-                </Link>
-            </button>
+            <Link className='rounded-lg text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300' to={'/'}>
+                Back to main page
+            </Link>
 
-            <div className='flex gap-10 py-8'>
-                <div className='w-2/3'>
+            <div className='flex gap-10 py-5'>
+                <div className='w-2/3 bg-[#fafafa] p-10 rounded-lg'>
                     <div className='flex flex-col basis-1/4 flex-grow'>
                         <div
                             className={
                                 post?.imgUrl
-                                    ? 'flex rouded-sm h-80'
-                                    : 'flex rounded-sm'
+                                    ? 'flex rouded-lg h-80'
+                                    : 'flex rounded-lg'
                             }
                         >
                             {post?.imgUrl && (
                                 <img
                                     src={`http://localhost:27017/${post.imgUrl}`}
                                     alt='img'
-                                    className='object-cover w-full'
+                                    className='object-cover w-full rounded-lg'
                                 />
                             )}
                         </div>
                     </div>
 
                     <div className='flex justify-between items-center pt-2'>
-                        <div className='text-xs text-white opacity-50'>
-                            {post.username}
+                        <div className='text-base text-Black opacity-50'>
+                            Created By {post.username}
                         </div>
-                        <div className='text-xs text-white opacity-50'>
+                        <div className='text-base text-black opacity-50'>
                             <Moment date={post.createdAt} format='D MMM YYYY' />
                         </div>
                     </div>
-                    <div className='text-white text-xl'>{post.title}</div>
-                    <p className='text-white opacity-60 text-xs pt-4'>
+                    <div className='text-Black text-2xl mt-2'>{post.title}</div>
+                    <p className='text-black opacity-60 text-xl pt-4'>
                         {post.text}
                     </p>
 
                     <div className='flex gap-3 items-center mt-2 justify-between'>
                         <div className='flex gap-3 mt-4'>
-                            <button className='flex items-center justify-center gap-2 text-xs text-white opacity-50'>
+                            <button className='flex items-center justify-center gap-2 text-xl text-black opacity-50'>
                                 <AiFillEye /> <span>{post.views}</span>
                             </button>
-                            <button className='flex items-center justify-center gap-2 text-xs text-white opacity-50'>
+                            <button className='flex items-center justify-center gap-2 text-xl text-black opacity-50'>
                                 <AiOutlineMessage />{' '}
                                 <span>{post.comments?.length || 0} </span>
                             </button>
@@ -133,14 +131,14 @@ export const PostPage = () => {
 
                         {user?._id === post.author && (
                             <div className='flex gap-3 mt-4'>
-                                <button className='flex items-center justify-center gap-2 text-white opacity-50'>
+                                <button className='flex items-center justify-center gap-2 text-xl text-black opacity-50'>
                                     <Link to={`/${params.id}/edit`}>
                                         <AiTwotoneEdit />
                                     </Link>
                                 </button>
                                 <button
                                     onClick={removePostHandler}
-                                    className='flex items-center justify-center gap-2  text-white opacity-50'
+                                    className='flex items-center justify-center gap-2 text-xl text-black opacity-50'
                                 >
                                     <AiFillDelete />
                                 </button>
@@ -148,7 +146,7 @@ export const PostPage = () => {
                         )}
                     </div>
                 </div>
-                <div className='w-1/3 p-8 bg-gray-700 flex flex-col gap-2 rounded-sm'>
+                <div className='w-1/3 p-8 bg-[#fafafa] flex flex-col gap-2 rounded-lg'>
                     <form
                         className='flex gap-2'
                         onSubmit={(e) => e.preventDefault()}
@@ -157,15 +155,15 @@ export const PostPage = () => {
                             type='text'
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                            placeholder='Comment'
-                            className='text-black w-full rounded-sm bg-gray-400 border p-2 text-xs outline-none placeholder:text-gray-700'
+                            placeholder='Leave a comment!'
+                            className='text-black w-full rounded-lg border p-2 text-xs outline-none placeholder:text-gray-400'
                         />
                         <button
                             type='submit'
                             onClick={handleSubmit}
-                            className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
+                            className='rounded-lg w-[120px] text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300'
                         >
-                            Отправить
+                            Send
                         </button>
                     </form>
 

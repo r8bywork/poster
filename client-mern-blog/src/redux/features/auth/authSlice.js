@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 import axios from '../../../utils/axios'
 
 const initialState = {
@@ -37,6 +38,7 @@ export const loginUser = createAsyncThunk(
             if (data.token) {
                 window.localStorage.setItem('token', data.token)
             }
+            toast(`Welcome back, ${username}`)
             return data
         } catch (error) {
             console.log(error)

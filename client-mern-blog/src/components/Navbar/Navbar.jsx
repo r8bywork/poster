@@ -1,27 +1,27 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { checkIsAuth, logout } from '../redux/features/auth/authSlice'
+import { checkIsAuth, logout } from '../../redux/features/auth/authSlice'
 import { toast } from 'react-toastify'
 
-export const Navbar = () => {
+const Navbar = () => {
     const isAuth = useSelector(checkIsAuth)
     const dispatch = useDispatch()
-
+    const { user } = useSelector((state) => state.auth)
     const activeStyles = {
-        color: 'white',
+        'backgroundColor': '#40a9ff',
     }
 
     const logoutHandler = () => {
         dispatch(logout())
         window.localStorage.removeItem('token')
-        toast('Вы вышли из системы')
+        toast('You just log out')
     }
 
     return (
         <div className='flex py-4 justify-between items-center'>
-            <span className='flex justify-center items-center w-6 h-6 bg-gray-600 text-xs text-white rounded-sm'>
-                E
+            <span className='flex justify-center items-center w-40 h-6 bg-gray-600 text-xs text-white rounded-sm'>
+                My Simple Blog
             </span>
 
             {isAuth && (
@@ -30,48 +30,51 @@ export const Navbar = () => {
                         <NavLink
                             to={'/'}
                             href='/'
-                            className='text-xs text-gray-400 hover:text-white'
+                            className='rounded-lg flex text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300'
                             style={({ isActive }) =>
                                 isActive ? activeStyles : undefined
                             }
                         >
-                            Главная
+                            Main Page
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to={'/posts'}
                             href='/'
-                            className='text-xs text-gray-400 hover:text-white'
+                            className='rounded-lg flex text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300'
                             style={({ isActive }) =>
                                 isActive ? activeStyles : undefined
                             }
                         >
-                            Мои посты
+                            My Posts
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to={'/new'}
                             href='/'
-                            className='text-xs text-gray-400 hover:text-white'
+                            className='rounded-lg flex text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300'
                             style={({ isActive }) =>
                                 isActive ? activeStyles : undefined
                             }
                         >
-                            Добавить пост
+                            New Post
                         </NavLink>
                     </li>
                 </ul>
             )}
-
-            <div className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2'>
+            <div className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2 hover:bg-[#40a9ff] ease-in-out duration-300'>
+                
                 {isAuth ? (
-                    <button onClick={logoutHandler}>Выйти</button>
+                    <button onClick={logoutHandler}>Sign out dear {user.username}</button>
                 ) : (
-                    <Link to={'/login'}> Войти </Link>
+                    
+                    <Link to={'/login'}> Login </Link>
                 )}
             </div>
         </div>
     )
 }
+
+export default Navbar

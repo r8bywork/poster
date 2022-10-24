@@ -1,7 +1,7 @@
 import React from 'react'
-import { Navbar } from './Navbar'
+import Navbar from '../Navbar/Navbar'
 
-export const Layout = ({ children }) => {
+const Layout = ({ children }) => {
     return (
         <React.Fragment>
             <div className='container mx-auto'>
@@ -11,3 +11,5 @@ export const Layout = ({ children }) => {
         </React.Fragment>
     )
 }
+
+export default Layout
