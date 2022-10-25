@@ -33,28 +33,28 @@ export const RegisterPage = () => {
     return (
         <form
             onSubmit={(e) => e.preventDefault()}
-            className='w-1/4 h-60 mx-auto mt-40'
+            className='w-1/4 h-60 mx-auto mt-40 bg-white p-[15px] rounded-lg'
         >
-            <h1 className='text-lg text-white text-center'>Регистрация</h1>
-            <label className='text-xs text-gray-400'>
+            <h1 className='text-lg text-center'>Sign in</h1>
+            <label className='text-xs text-black'>
                 Username:
                 <input
                     type='text'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder='Username'
-                    className='mt-1 text-black w-full rounded-lg bg-gray-400 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='mt-1 text-black w-full rounded-lg border py-1 px-2 text-xs outline-none placeholder:text-gray-400'
                 />
             </label>
 
-            <label className='text-xs text-gray-400'>
+            <label className='text-xs text-black'>
                 Password:
                 <input
                     type='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder='Password'
-                    className='mt-1 text-black w-full rounded-lg bg-gray-400 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='mt-1 text-black w-full rounded-lg border py-1 px-2 text-xs outline-none placeholder:text-gray-400'
                 />
             </label>
 
@@ -64,13 +64,13 @@ export const RegisterPage = () => {
                     onClick={handleSubmit}
                     className='flex justify-center items-center text-xs bg-gray-600 text-white rounded-sm py-2 px-4'
                 >
-                    Подтвердить
+                    Accept
                 </button>
                 <Link
                     to='/login'
-                    className='flex justify-center items-center text-xs text-white'
+                    className='flex justify-center items-center text-xs text-black'
                 >
-                    Уже зарегистрированы ?
+                    Already registered?
                 </Link>
             </div>
         </form>

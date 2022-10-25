@@ -38,7 +38,6 @@ export const loginUser = createAsyncThunk(
             if (data.token) {
                 window.localStorage.setItem('token', data.token)
             }
-            toast(`Welcome back, ${username}`)
             return data
         } catch (error) {
             console.log(error)

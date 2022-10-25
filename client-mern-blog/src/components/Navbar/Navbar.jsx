@@ -67,7 +67,7 @@ const Navbar = () => {
             <div className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2 hover:bg-[#40a9ff] ease-in-out duration-300'>
                 
                 {isAuth ? (
-                    <button onClick={logoutHandler}>Sign out dear {user.username}</button>
+                    <button onClick={logoutHandler}>Sign out dear {user?.username}</button>
                 ) : (
                     
                     <Link to={'/login'}> Login </Link>
