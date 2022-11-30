@@ -21,7 +21,7 @@ const Navbar = () => {
     return (
         <div className='flex py-4 justify-between items-center'>
             <span className='flex justify-center items-center w-40 h-6 bg-gray-600 text-xs text-white rounded-sm'>
-                My Simple Blog
+                Личный блог
             </span>
 
             {isAuth && (
@@ -35,7 +35,7 @@ const Navbar = () => {
                                 isActive ? activeStyles : undefined
                             }
                         >
-                            Main Page
+                            Главная страница
                         </NavLink>
                     </li>
                     <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                 isActive ? activeStyles : undefined
                             }
                         >
-                            My Posts
+                            Мои посты
                         </NavLink>
                     </li>
                     <li>
@@ -59,7 +59,7 @@ const Navbar = () => {
                                 isActive ? activeStyles : undefined
                             }
                         >
-                            New Post
+                            Новый посты
                         </NavLink>
                     </li>
                 </ul>
@@ -67,10 +67,10 @@ const Navbar = () => {
             <div className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2 hover:bg-[#40a9ff] ease-in-out duration-300'>
                 
                 {isAuth ? (
-                    <button onClick={logoutHandler}>Sign out dear {user?.username}</button>
+                    <button onClick={logoutHandler}>Добро пожаловать {user?.username}</button>
                 ) : (
                     
-                    <Link to={'/login'}> Login </Link>
+                    <Link to={'/login'}> Вход </Link>
                 )}
             </div>
         </div>

@@ -52,7 +52,7 @@ export const EditPostPage = () => {
             onSubmit={(e) => e.preventDefault()}
         >
             <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
-                Add Image:
+                Добавить изображение:
                 <input
                     type='file'
                     className='hidden'
@@ -80,7 +80,7 @@ export const EditPostPage = () => {
             </div>
 
             <label className='text-xl text-Black opacity-70'>
-                Post title:
+                Заголовок поста:
                 <input
                     type='text'
                     value={title}
@@ -91,7 +91,7 @@ export const EditPostPage = () => {
             </label>
 
             <label className='text-xl text-Black opacity-70 '>
-                Post text:
+                Текст:
                 <textarea
                     onChange={(e) => setText(e.target.value)}
                     value={text}

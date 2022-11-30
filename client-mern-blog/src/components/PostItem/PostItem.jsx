@@ -22,7 +22,7 @@ const PostItem = ({ post }) => {
           )}
         </div>
         <div className="post_header">
-          <div className="text-xs text-black opacity-50">Created By {post.username}</div>
+          <div className="text-xs text-black opacity-50">Создан {post.username}</div>
           <div className="text-xs text-black opacity-50">
             <Moment date={post.createdAt} format="D MMM YYYY" />
           </div>

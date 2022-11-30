@@ -82,7 +82,7 @@ export const PostPage = () => {
     return (
         <div>
             <Link className='rounded-lg text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300' to={'/'}>
-                Back to main page
+                Возврат на главную страницу
             </Link>
 
             <div className='flex gap-10 py-5'>
@@ -107,7 +107,7 @@ export const PostPage = () => {
 
                     <div className='flex justify-between items-center pt-2'>
                         <div className='text-base text-Black opacity-50'>
-                            Created By {post.username}
+                            Создан {post.username}
                         </div>
                         <div className='text-base text-black opacity-50'>
                             <Moment date={post.createdAt} format='D MMM YYYY' />
@@ -155,7 +155,7 @@ export const PostPage = () => {
                             type='text'
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                            placeholder='Leave a comment!'
+                            placeholder='Оставь комментарий!'
                             className='text-black w-full rounded-lg border p-2 text-xs outline-none placeholder:text-gray-400'
                         />
                         <button
@@ -163,7 +163,7 @@ export const PostPage = () => {
                             onClick={handleSubmit}
                             className='rounded-lg w-[120px] text-xs p-2 bg-gray-600 text-white hover:bg-[#40a9ff] ease-in-out duration-300'
                         >
-                            Send
+                            Отправить
                         </button>
                     </form>
 

@@ -40,7 +40,7 @@ export const AddPostPage = () => {
             onSubmit={(e) => e.preventDefault()}
         >
             <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
-                Add Image:
+                Добавить изображение:
                 <input
                     type='file'
                     className='hidden'
@@ -54,7 +54,7 @@ export const AddPostPage = () => {
             </div>
 
             <label className='text-xl text-Black opacity-70'>
-            Post title:
+            Заголовок поста:
                 <input
                     type='text'
                     value={title}
@@ -65,7 +65,7 @@ export const AddPostPage = () => {
             </label>
 
             <label className='text-xl text-Black opacity-70'>
-                Post text:
+                Текст:
                 <textarea
                     onChange={(e) => setText(e.target.value)}
                     value={text}
@@ -79,19 +79,19 @@ export const AddPostPage = () => {
                     onClick={submitHandler}
                     className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
                 >
-                    Add
+                    Добавить
                 </button>
 
                 <NavLink to={'/'} 
                 className='flex justify-center items-center bg-red-500 text-xs text-white rounded-sm py-2 px-4'>
-                  Exit
+                    Выйти
                 </NavLink>
 
                 <button
                     onClick={clearFormHandler}
                     className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
                 >
-                    Clear
+                    Очистить
                 </button>
             </div>
         </form>

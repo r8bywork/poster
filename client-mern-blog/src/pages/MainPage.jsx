@@ -33,7 +33,7 @@ export const MainPage = () => {
                 </div>
                 <div className='basis-1/5'>
                     <div className='text-xs uppercase text-Black'>
-                        Popular:
+                        Популярное:
                     </div>
 
                     {popularPosts?.map((post, idx) => (
